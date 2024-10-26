@@ -1,0 +1,83 @@
+
+    .T3{
+     font-family:Wittgenstein;
+     font-size: 5rem;
+        color: #032630;
+        font-weight: 900;
+        text-align: center;
+        padding:2% 0% 2% 0%;
+        margin: 0% 0% 9% 0% 
+}
+.T4{
+    font-family: Times New Roman;
+    font-Size: 3rem;
+     font-Weight:600
+}
+.achetez{
+    background: linear-gradient(rgba(1, 8, 0, 0.55),rgba(1, 9, 0, 0.65));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0% 0% 0%;
+    height: 15%;
+}
+.SOL-card{
+    margin: 0% 0% 30% 0%;
+    
+} 
+@media (max-width: 650px) and (min-width:535px){
+    .T3{
+        font-size: 2.8rem
+    }
+    .T4{
+        font-Size: 2.2rem
+    }
+    .T5{
+        font-size: 2.8rem
+    }
+    .SOL-card{
+        width: 80vw;
+        height:116vh
+    }
+    .sol-img{
+        min-width: 80vw;
+    }
+}
+@media(max-width: 535px){
+    .T3{
+        font-size: 2.5rem
+    }
+    .T4{
+        font-Size: 2rem
+    }
+    .T5{
+        font-size: 2.5rem
+    }
+    .SOL-card{
+        width: 90vw;
+        height: 112vh;
+    }
+    .sol-img{
+        min-width: 90vw
+    }
+}
+.sol-img{
+    height:auto;
+    width:100%;
+}
+.T5{
+    font-family:Wittgenstein;
+    font-size: 4.5rem;
+       color: #032630;
+       font-weight: 900;
+       text-align: center;
+       margin: 1% 4% 2% 4%;
+    }
+.T6{
+        font-family:Wittgenstein;
+        font-size: 4rem;
+           color: #032630;
+           font-weight: 900;
+           text-align: center;
+           padding:2% 0% 2% 0%;
+   }
