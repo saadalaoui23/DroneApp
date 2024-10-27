@@ -169,8 +169,8 @@ const handleDelete = (id, type) => {
   
     return (
       <div className="mb-3">
-        <button className="btn btn-primary" onClick={() => setIsOpen(!isOpen)}>
-          Filter
+        <button className='btn btn-outline-success m-2 px-3 py-2 ' onClick={() => setIsOpen(!isOpen)} style={{fontFamily: 'Wittgenstein'  }}>
+          Filtre
         </button>
         {isOpen && (
             <div className="border rounded p-3 mt-2">
@@ -272,7 +272,7 @@ const handleDelete = (id, type) => {
               />
               Is Admin
             </label>
-            <button type="submit" className="btn btn-success mt-2">Apply Filters</button>
+            <button type="submit" className="btn btn-success mt-2" style={{fontFamily: 'Wittgenstein'  }}>Apply Filters</button>
           </form>
           </div>
         )}
@@ -283,40 +283,40 @@ const handleDelete = (id, type) => {
   return (
     isAdmin && (
       <div className="container">
-        <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 0% 7%' }}>Retour</Button>
+        <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{fontFamily:'Wittgenstein', margin: '3% 0% 0% 7%' }}>Retour</Button>
         <h1 className='T6 text-center'>Admin Dashboard</h1>
 
-        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}}>Users</h2>
-        <div className="border p-3 mb-4 rounded">
-        <FilterComponent onFilter={handleFilter} />
-        {users.length > 0 ? (
-                        <div className="row">
-                            {users.length > 10 ? (
-                                users.map((user, index) => (
-                                    <div className="col-md-6 mb-3" key={user.id}>
-                                        <div className="list-group-item mb-1 "> {/* Border added here */}
-                                            {user.prenom} {user.nom} : @{user.username}: {user.email}
-                                        </div>
-                                    </div>
-                                ))
-                            ) : (
-                                users.map(user => (
-                                    <div className="col-12 mb-3" key={user.id}>
-                                        <div className="list-group-item border mb-2"> {/* Border added here */}
-                                            {user.prenom} {user.nom} : @{user.username}: {user.email}
-                                        </div>
-                                    </div>
-                                ))
-                            )}
+        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}}>Utilisateurs</h2>
+<div className="border p-3 mb-4 rounded">
+    <FilterComponent onFilter={handleFilter} />
+    {filteredUsers.length > 0 ? (  // Changer ici de users à filteredUsers
+        <div className="row">
+            {filteredUsers.length > 10 ? (
+                filteredUsers.map((user, index) => (
+                    <div className="col-md-6 mb-3" key={user.id}>
+                        <div className="list-group-item mb-1 ">
+                            {user.prenom} {user.nom} : @{user.username}: {user.email}
                         </div>
-                    
-                ) : (
-                    <p>No users found.</p>
-                )}</div>
+                    </div>
+                ))
+            ) : (
+                filteredUsers.map(user => (  // Changer ici aussi
+                    <div className="col-12 mb-3" key={user.id}>
+                        <div className="list-group-item border mb-2">
+                            {user.prenom} {user.nom} : @{user.username}: {user.email}
+                        </div>
+                    </div>
+                ))
+            )}
+        </div>
+    ) : (
+        <p>No users found.</p>
+    )}
+</div>
 
         {/* Solutions Section */}
-        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}} >Solutions</h2>
-        <button className="btn btn-secondary btn-sm ml-auto" onClick={() => navigate(`/solutions/create`)}>
+        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'7% 0% 0% 0% '}} >Solutions</h2>
+        <button className='btn btn-outline-success m-2 px-3 py-2 ' onClick={() => navigate(`/solutions/create`)} style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}}>
                     Ajouter
                 </button>
                 {solutions.length > 0 ? (
@@ -325,10 +325,10 @@ const handleDelete = (id, type) => {
             <li className="list-group-item d-flex justify-content-between align-items-center" key={solution.id}>
                 <span className="fw-bold">{solution.title}</span>
                 <div className="d-flex">
-                    <button className="btn btn-secondary btn-sm me-2" onClick={() => navigate(`/solution/edit/${solution.id}`)}>
+                    <button className="btn btn-secondary btn-sm me-2" onClick={() => navigate(`/solution/edit/${solution.id}`)} style={{fontFamily: 'Wittgenstein'  }}>
                         Modifier
                     </button>
-                    <Button variant="danger" onClick={() => handleDelete(solution.id, 'solutions')}>
+                    <Button variant="danger" onClick={() => handleDelete(solution.id, 'solutions')} style={{fontFamily: 'Wittgenstein'  }}>
                         Supprimer
                     </Button>
                 </div>
@@ -341,8 +341,8 @@ const handleDelete = (id, type) => {
 
 
         {/* Abonnements Section */}
-        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}}>Abonnements</h2>
-        <button className="btn btn-secondary btn-sm ml-auto" onClick={() => navigate(`/Abonnements/create`)}>
+        <h2 className='Fs-1 fw-bold text-center' style={{fontFamily:'Wittgenstein', margin:'7% 0% 0% 0% '}}>Abonnements</h2>
+        <button className='btn btn-outline-success m-2 px-3 py-2 ' onClick={() => navigate(`/Abonnements/create`)} style={{fontFamily:'Wittgenstein', margin:'3% 0% 3% 0% '}}>
                     Ajouter
                 </button>
                 {abonnements.length > 0 ? (
@@ -351,10 +351,10 @@ const handleDelete = (id, type) => {
             <li className="list-group-item d-flex justify-content-between align-items-center" key={abonnement.id}>
                 <span className="fw-bold">{abonnement.title} : {abonnement.price}€</span>
                 <div className="d-flex">
-                    <button className="btn btn-secondary btn-sm me-2" onClick={() => navigate(`/abonnement/edit/${abonnement.id}`)}>
+                    <button className="btn btn-secondary btn-sm me-2" onClick={() => navigate(`/abonnement/edit/${abonnement.id}`)} style={{fontFamily: 'Wittgenstein'  }}>
                         Modifier
                     </button>
-                    <Button variant="danger" onClick={() => handleDelete(abonnement.id, 'abonnements')}>
+                    <Button variant="danger" onClick={() => handleDelete(abonnement.id, 'abonnements')} style={{fontFamily: 'Wittgenstein'  }}>
                         Supprimer
                     </Button>
                 </div>

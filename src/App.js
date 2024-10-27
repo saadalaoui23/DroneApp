@@ -21,6 +21,8 @@ import SolutionCreateOrEdit from './components/SolutionCreate';
 import AbonnementCreateOrEdit from './components/AbonnementsCreate';
 import Solutions from './components/Solutions';
 import Dashboard from './Pages/dashboard';
+import Client_Page from './Pages/Client_Page';
+import UserProfileForm from './Pages/UserProfileForm';
 
 
 const ProtectedRoute = ({ children }) => {
@@ -48,6 +50,7 @@ const App = () => {
           <Route path='/home_guest/login_page' element={<Login_Page />} />
           <Route path='/login_page' element={<Login_Page />} />
           <Route path='/login_page/register_page' element={<Register_Page />} />
+          <Route path='/register_page' element={<Register_Page />} />
           <Route path='/forget_password' element={<Forget_Password />} />
           <Route path='/solutions' element={<Page_Solutions />} />
           <Route path='/solutions/:serviceId' element={<Page_Solutions />} />
@@ -77,6 +80,22 @@ const App = () => {
             element={
               <ProtectedRoute>
                 <Paiement />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/client_page'
+            element={
+              <ProtectedRoute>
+                <Client_Page />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/user/profile'
+            element={
+              <ProtectedRoute>
+                <UserProfileForm />
               </ProtectedRoute>
             }
           />

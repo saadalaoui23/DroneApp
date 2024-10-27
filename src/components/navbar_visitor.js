@@ -1,7 +1,25 @@
+import React, { useEffect, useState } from 'react';
 import {Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 const NavComp_visitor = () => {
   const navigate= useNavigate()
+  const [solutions, setSolutions] = useState([]);
+  const fetchSolutions = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/solutions'); // Remplacez l'URL par celle de votre API
+      if (!response.ok) {
+        throw new Error('Erreur lors de la récupération des solutions');
+      }
+      const data = await response.json();
+      setSolutions(data); // Mettez à jour l'état avec les solutions récupérées
+    } catch (error) {
+      console.error('Error fetching solutions:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchSolutions(); // Appeler la fonction pour récupérer les solutions lors du montage du composant
+  }, []);
   
   return (<>
       <Navbar  expand="lg" className="navbar sticky-top bg-body-tertiary ">
@@ -13,19 +31,21 @@ const NavComp_visitor = () => {
           <Nav.Link href="#nouveautés">Nouveautés Drone 4.0</Nav.Link>
           <Nav.Link href="#Entreprise">Entreprise</Nav.Link>
           <NavDropdown title="Services" id="basic-nav-dropdown">
-            <NavDropdown.Item onClick={()=>{navigate('/solutions/1')}}>Cartographie Topographique</NavDropdown.Item>
-            <NavDropdown.Item href="/solutions/2">
-            Modélisation du Terrain
-            </NavDropdown.Item>
-            <NavDropdown.Item href="/solutions/3">Planification et Gestion des Ressources Naturelles</NavDropdown.Item>
-            <NavDropdown.Item onClick={()=>{navigate('/solutions/4')}}>Analyse et Surveillance Topographique</NavDropdown.Item>
-            <NavDropdown.Item href="/solutions/5">Géoréférencement Précis</NavDropdown.Item>
-            <NavDropdown.Item href="/solutions/6">Suivi des Projets de Construction</NavDropdown.Item>
-            <NavDropdown.Item href="/solutions/7">Détection et Mesure des Volumes</NavDropdown.Item>
+                {solutions.map((solution) => (
+                  <NavDropdown.Item key={solution.id} onClick={() => { navigate(`/solutions/${solution.id}`);setTimeout(() => {
+                    const element = document.getElementById(`service-${solution.id}`); // Assurez-vous que l'ID est correct
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' }); // Défilement vers l'élément
+                    }
+                  }, 0); }}>
+                    {solution.title}
+                  </NavDropdown.Item>
+                ))}
             <NavDropdown.Divider />
             <NavDropdown.Item href="/checkout">Achetez Maintenant</NavDropdown.Item>
           </NavDropdown>
           <Nav.Link onClick={()=>{navigate('/solutions')}}>Solutions</Nav.Link>
+          <Nav.Link onClick={()=>navigate('/abonnements')} >Abonnements</Nav.Link>
           <nav class='Login'>
           <Nav.Link onClick={()=>navigate('login_page')} style={{color: 'rgb(30, 85, 32)', fontWeight:700}} >Se connecter</Nav.Link>
           <Nav.Link href="#Support">Support</Nav.Link>

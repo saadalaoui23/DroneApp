@@ -65,7 +65,7 @@ const SolutionCreateOrEdit = ({ isEditing }) => {
         }
     };
 
-    return (<div><div><Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 3% 7%' }}>Retour</Button>
+    return (<div><div><Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 3% 7%',fontFamily: 'Wittgenstein'  }}>Retour</Button>
         </div>
         <Container>
             <h1>{isEditing ? 'Modifier' : 'Créer'} une solution</h1>

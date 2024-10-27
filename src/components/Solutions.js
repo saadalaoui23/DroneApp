@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Container, Card, Col, Modal  } from "react-bootstrap";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,useParams } from 'react-router-dom';
 import CARTE from '../images/CARTE.jpg';
 import MOD from '../images/MOD.jpg'
 import CO from '../images/CO.jpg'
@@ -15,6 +15,7 @@ const Solutions = () => {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const navigate = useNavigate();
     const isAdmin = localStorage.getItem('is_admin') === 'true';  // Vérifier si l'utilisateur est admin
+    const { solutionId } = useParams();
 
     // Images statiques associées par leur ID
     const images = [
@@ -80,10 +81,20 @@ const Solutions = () => {
         return image ? image.src : 'default-image.jpg';
     };
 
+    useEffect(() => {
+        // Si un ID de solution est présent dans l'URL, faire défiler vers cet élément
+        if (solutionId) {
+            const element = document.getElementById(`service-${solutionId}`);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }, [solutionId]);
+
     return (
         <div>
             <div>
-                <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 0% 7%' }}>Retour</Button>
+                <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 0% 7%',fontFamily: 'Wittgenstein'  }}>Retour</Button>
                 <h1 className='T3'>Solutions proposées</h1>
             </div>
             <Container>

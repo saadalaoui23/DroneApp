@@ -71,7 +71,7 @@ const Abonnements = () => {
     return (
         <div>
             <div>
-                <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 0% 7%' }}>Retour</Button>
+                <Button onClick={() => navigate(-1)} className='btn-secondary fs-5 text-center px-2 py-1 rounded-pill' style={{ margin: '3% 0% 0% 7%',fontFamily: 'Wittgenstein'  }}>Retour</Button>
                 <h1 className='T6 text-center'>Abonnements disponibles</h1>
             </div>
 
@@ -79,7 +79,7 @@ const Abonnements = () => {
                 {abonnements.length > 0 ? (
                     abonnements.map(abonnement => (
                         <Card key={abonnement.id} className='shadow-sm border-light rounded m-3' style={{ backgroundColor: 'rgba(6, 48, 2, 0.05)', flex: '1 0 30%' }}>
-                            <Card.Body className='d-flex flex-column'>
+                            <Card.Body className='Abonnement d-flex flex-column'>
                                 <h3 className='text-center my-3' style={{ fontFamily: 'Wittgenstein' }}>{abonnement.title}</h3>
                                 <Card.Text className='flex-grow-1'>{abonnement.description}</Card.Text>
                                 <Card.Text className='fw-bold'>Prix: {abonnement.price} €</Card.Text>

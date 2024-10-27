@@ -141,7 +141,7 @@ const Login = () => {
               </Row>
               <Row className="mb-3 justify-content-center" md="8">
                 <div className="text-center">
-                  <Link to='register_page'>Première visite? Créer un compte</Link>
+                  <Link to='/register_page'>Première visite? Créer un compte</Link>
                 </div>
               </Row>
             </div>
